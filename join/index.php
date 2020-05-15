@@ -1,3 +1,8 @@
+<?php
+if ($_POST['name'] === '') {
+	$error['name'] = 'blank';
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -20,18 +25,21 @@
 	<dl>
 		<dt>ニックネーム<span class="required">必須</span></dt>
 		<dd>
-        	<input type="text" name="name" size="35" maxlength="255" value="" />
+        <input type="text" name="name" size="35" maxlength="255" value="" />
+				<?php if ($error['name'] === 'blank'): ?>
+				<p class="error">* ニックネームを入力してください</p>
+				<?php endif; ?>
 		</dd>
 		<dt>メールアドレス<span class="required">必須</span></dt>
 		<dd>
-        	<input type="text" name="email" size="35" maxlength="255" value="" />
+        <input type="text" name="email" size="35" maxlength="255" value="" />
 		<dt>パスワード<span class="required">必須</span></dt>
 		<dd>
-        	<input type="password" name="password" size="10" maxlength="20" value="" />
+        <input type="password" name="password" size="10" maxlength="20" value="" />
         </dd>
 		<dt>写真など</dt>
 		<dd>
-        	<input type="file" name="image" size="35" value="test"  />
+        <input type="file" name="image" size="35" value="test"  />
         </dd>
 	</dl>
 	<div><input type="submit" value="入力内容を確認する" /></div>
